@@ -1,0 +1,1 @@
+As a user, I want to be able to search for a movie evoking a certain emotion without having to specify genre. I would expect to be able to search the emotion that I desire within the movie. The result I would expect is a list of movies of any genre to show up that fit under the emotion I searched for.
