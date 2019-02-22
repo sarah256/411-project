@@ -1,0 +1,5 @@
+User Knows Desired Genre and Wants to see Sentiments:
+This profile showcases a situation where a user knows what genre of movie they want to watch but want to see what sentiment people had about the movie.
+
+Story:
+A user logs into service. They want to watch an action movie but want to avoid one that will have scenes that evoke sad moods but don’t specifically know what sentiment they want. User submit their desired genre and a list of movies are listed with the general sentiment and mood twitter users had about it. User can now pick a movie to watch.
