@@ -1,0 +1,4 @@
+When a user makes searches and adds favorites when logged in, the search 
+history and "favorites" are saved to the user's account, so that the 
+next time they log in, they would be able to find their past favorites 
+and search history as a reference.
