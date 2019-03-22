@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="{{ url_for('static',    filename='css/home.css') }}">
+	</head>
+	<body>
+	    <h1>Enter a query to search</h1>
+		<p>The app will return tweets from Twitter</p>
+		<form action="/input" method="POST">
+			<input type="text" name="submitText" id="submitText" placeholder="Search.."><!-- <button onclick="smh();" type="button">Submit!</button> -->
+		</form>
+		<div class="def-text">
+			{{tweets}}
+		</div>
+	</body>
+</html>
+<script>
+	function smh() {
+		let query = document.getElementById("submitText").value;
+		console.log("smh", query);
+
+		var http = new XMLHttpRequest();
+		http.onreadystatechange = () => {
+			console.log("wub wub got a response");
+		}
+
+		http.open("POST", "http://127.0.0.1:5000/input", true);
+		http.send();
+	}
+
+</script>
