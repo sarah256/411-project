@@ -1,1 +1,5 @@
+User Authentication:
 
+One feature that we'll be adding is the ability for the user to log in. This will enable us to store data from the user 
+in our database. That way the user can do stuff like save searches and favorites. We'd like for the user to be able to sign 
+in through some other third party service such as Google so they don't need to have an additional account through us. 

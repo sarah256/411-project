@@ -51,22 +51,22 @@ class TwitterClient(object):
 			fetched_tweets = self.api.search(q = query, count = count) 
 
 			# parsing tweets one by one 
-            for tweet in fetched_tweets: 
-                # empty dictionary to store required params of a tweet 
-                parsed_tweet = {} 
-  
-                # saving text of tweet 
-                parsed_tweet['text'] = tweet.text 
-                # saving sentiment of tweet 
-                parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text) 
-  
-                # appending parsed tweet to tweets list 
-                if tweet.retweet_count > 0: 
-                    # if tweet has retweets, ensure that it is appended only once 
-                    if parsed_tweet not in tweets: 
-                        tweets.append(parsed_tweet) 
-                else: 
-                    tweets.append(parsed_tweet) 
+			for tweet in fetched_tweets: 
+				# empty dictionary to store required params of a tweet 
+				parsed_tweet = {} 
+
+				# saving text of tweet 
+				parsed_tweet['text'] = tweet.text 
+				# saving sentiment of tweet 
+				parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text) 
+
+				# appending parsed tweet to tweets list 
+				if tweet.retweet_count > 0: 
+					# if tweet has retweets, ensure that it is appended only once 
+					if parsed_tweet not in tweets: 
+						tweets.append(parsed_tweet) 
+				else: 
+					tweets.append(parsed_tweet) 
 
 			# return parsed and tokenized tweets 
 			return tweets 
