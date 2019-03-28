@@ -15,6 +15,7 @@ class TwitterClient(object):
 		Class constructor or initialization method. 
 		'''
 		# keys and tokens from the Twitter Dev Console 
+		# keys and tokens from the Twitter Dev Console 
 		consumer_key = ''
 		consumer_secret = ''
 		access_token = ''
@@ -56,9 +57,10 @@ class TwitterClient(object):
 				parsed_tweet = {} 
 
 				# saving text of tweet 
-				parsed_tweet['text'] = tweet.text 
+				parsed_tweet = self.clean_tweet(tweet.text)
+				 # '@%s tweeted: %s' % ( tweet['user']['screen_name'], tweet['text'] ) 
 				# saving sentiment of tweet 
-				parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text) 
+				# parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text) 
 
 				# appending parsed tweet to tweets list 
 				if tweet.retweet_count > 0: 
