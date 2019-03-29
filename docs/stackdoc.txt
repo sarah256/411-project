@@ -1,0 +1,1 @@
+We chose to use flask because it is intuitive and accessible. Every one on the team knows Python and the code is easy to understand. Each team member is able to make his/her contributions, so flask is ideal for building this simple prototype. We might introduce other languages and data structures as we build in more features later on.
