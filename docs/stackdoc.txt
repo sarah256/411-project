@@ -1,8 +1,8 @@
-We chose to use flask because our project is backend-heavy.
+We chose to use flask because our project is backend-heavy. 
 Moreover, it is intuitive and accessible. 
 Every one on the team knows Python and the code is easy to 
 understand. Each team member is able to make his/her contributions,
-so flask is ideal for building this simple prototype. We might 
-introduce other languages and libraries as we build in more
-features later on. For the front end, we are likely going to use
-Jinja2, since it's already built in to flask.
+so flask is ideal. We might introduce other languages and 
+libraries as we build in morefeatures later on. For the front end,
+we are likely going to use Jinja2, since it's already built in to 
+flask.
