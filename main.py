@@ -18,8 +18,9 @@ def input_text():
 		api = TwitterClient() 
 		# calling function to get tweets 
 		tweets = api.get_tweets(query = query, count = 100)
+		sentiment = api.get_sentiment(tweets)
 
-	return render_template("api_prototype.html", tweets=tweets) 
+	return render_template("api_prototype.html", tweets=sentiment) 
 
 if __name__ == "__main__":
     app.run(debug=True)
