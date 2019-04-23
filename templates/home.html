@@ -4,13 +4,30 @@
 		<meta charset="utf-8">
 		<title></title>
 		<link rel="stylesheet" href="{{ url_for('static',    filename='css/home.css') }}">
+	    <link href="../static/css/bootstrap.min.css" media="all" rel="stylesheet">
+	    <link href="../static/css/app.css" media="all" rel="stylesheet">
 	</head>
-	<body>
-	    <h1>Enter a query to search</h1>
-		<p>The app will return tweets from Twitter</p>
+	<body style="background-color: #F3F3F3">
+		<nav class="navbar navbar-light top-nav">
+	      <a class="navbar-brand" href="#">
+	      	<div class="row">
+	      		<div class="col-sm-4">
+		      		<img src="../static/img/reel.png" height="100" class="d-inline-block align-top" alt="" style="filter: invert(100%);">
+		      	</div>
+		      	<div class="col">
+		      		<h1 style="color:white;padding-top:22px;">CinEmotion</h1>
+		      	</div>
+		    </div>
+	      </a>
+	    </nav>
+	    <h1>Enter a movie genre to search</h1>
+		<p>The app will return popular movies of that genre and an analysis of how Twitter feels about them</p>
 		<form action="/input" method="POST">
 			<input type="text" name="submitText" id="submitText" placeholder="Search.."><!-- <button onclick="smh();" type="button">Submit!</button> -->
 		</form>
+		<div class="def-text">
+			{{tweets}}
+		</div>
 	</body>
 </html>
 <script>

@@ -20,7 +20,7 @@ def input_text():
 		tweets = api.get_tweets(query = query, count = 100)
 		sentiment = api.get_sentiment(tweets)
 
-	return render_template("api_prototype.html", tweets=sentiment) 
+	return render_template("home.html", tweets=sentiment) 
 
 if __name__ == "__main__":
     app.run(debug=True)
