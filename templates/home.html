@@ -68,7 +68,7 @@
 						<td><img src="https://image.tmdb.org/t/p/w500{{ images[movie] }}" height=125></td>
 						<td>{{ movie }}</td>
 						<td>{{ movies[movie] }}</td>
-						<td><a href="#" onclick="addFavorite({{ movie }})" class="fav"><i class="fas fa-heart"></i></a></td>
+						<td><a href="#" onclick="onFavorite({{ movie }})" class="fav"><i class="fas fa-heart"></i></a></td>
 					</tr>
 				{% endfor %}
 		      </tbody>
@@ -98,12 +98,7 @@
 	
 	  // Initialize Firebase
 	  var config = {
-	    apiKey: "AIzaSyDNV53bkCC4jvYWZVtX-TCwgxRhYwPJk0s",
-	    authDomain: "foureleven-1554489265027.firebaseapp.com",
-	    databaseURL: "https://foureleven-1554489265027.firebaseio.com",
-	    projectId: "foureleven-1554489265027",
-	    storageBucket: "foureleven-1554489265027.appspot.com",
-	    messagingSenderId: "161139410636"
+	   
 	  };
 	  firebase.initializeApp(config);
 
