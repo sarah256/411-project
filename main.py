@@ -7,8 +7,8 @@ from flask_oauthlib.client import OAuth
 app = Flask(__name__)
 
 app = Flask(__name__)
-app.config['GOOGLE_ID'] = "161139410636-eq45ng0nthurqcbl7o5eqcp1qto4unpu.apps.googleusercontent.com"
-app.config['GOOGLE_SECRET'] = "Aeuox9PDvNVupiMtHwwrAiEc"
+app.config['GOOGLE_ID'] = ""
+app.config['GOOGLE_SECRET'] = ""
 app.debug = True
 app.secret_key = 'development'
 oauth = OAuth(app)
