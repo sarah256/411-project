@@ -8,11 +8,26 @@
 	    <link href="../static/css/app.css" media="all" rel="stylesheet">
 	</head>
 	<body style="background-color: #F3F3F3">
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		<meta name="google-signin-client_id" content="insert client key here">
 		<nav class="navbar navbar-light top-nav">
 	      <a class="navbar-brand" href="#">
 	      	<div class="row">
 	      		<div class="col-sm-4">
 		      		<img src="../static/img/reel.png" height="100" class="d-inline-block align-top" alt="" style="filter: invert(100%);">
+		      	</div>
+		      	<div class="col-sm-4">
+		      		<form>
+					  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+					  <a href="#" onclick="signOut();">Sign out</a>
+						<script>
+						  function signOut() {
+						    var auth2 = gapi.auth2.getAuthInstance();
+						    auth2.signOut().then(function () {
+						      console.log('User signed out.');
+						    });
+						  }
+						</script>
 		      	</div>
 		      	<div class="col">
 		      		<h1 style="color:white;padding-top:22px;">CinEmotion</h1>
@@ -43,5 +58,17 @@
 		http.open("POST", "http://127.0.0.1:5000/input", true);
 		http.send();
 	}
+
+	function onSignIn(googleUser) {
+	  var profile = googleUser.getBasicProfile();
+	  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+	  console.log('Name: ' + profile.getName());
+	  console.log('Image URL: ' + profile.getImageUrl());
+	  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+	  // Important: Do not use the Google IDs returned by getId() or the user's profile information to communicate the currently signed in user to your backend server. Instead, send ID tokens, which can be securely validated on the server.
+	  // https://developers.google.com/identity/sign-in/web/backend-auth
+	}
+
+
 
 </script>
