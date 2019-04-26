@@ -6,6 +6,8 @@
 		<link rel="stylesheet" href="{{ url_for('static',    filename='css/home.css') }}">
 	    <link href="../static/css/bootstrap.min.css" media="all" rel="stylesheet">
 	    <link href="../static/css/app.css" media="all" rel="stylesheet">
+	    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
 	</head>
 	<body style="background-color: #F3F3F3">
 		<nav class="navbar navbar-light top-nav">
@@ -54,6 +56,7 @@
 		          <th scope="col"></th>
 		          <th scope="col">Movie</th>
 		          <th scope="col">Primary Emotion</th>
+		          <th scope="col">Favorite</th>
 		        </tr>
 		      </thead>
 		      <tbody>
@@ -62,6 +65,7 @@
 						<td><img src="https://image.tmdb.org/t/p/w500{{ images[movie] }}" height=125></td>
 						<td>{{ movie }}</td>
 						<td>{{ movies[movie] }}</td>
+						<td><a href="#" class="fav"><i class="fas fa-heart"></i></a></td>
 					</tr>
 				{% endfor %}
 		      </tbody>

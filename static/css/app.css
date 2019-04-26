@@ -42,3 +42,10 @@
 .form-desc{
 	margin-top: 10px;
 }
+
+a {
+  color: gray;
+}
+a:focus {
+  color: red;
+}
