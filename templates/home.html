@@ -20,14 +20,33 @@
 		    </div>
 	      </a>
 	    </nav>
-	    <h1>Enter a movie genre to search</h1>
-		<p>The app will return popular movies of that genre and an analysis of how Twitter feels about them</p>
-		<form action="/input" method="POST">
-			<input type="text" name="submitText" id="submitText" placeholder="Search.."><!-- <button onclick="smh();" type="button">Submit!</button> -->
-		</form>
-		<div class="def-text">
-			{{movies}}
+	    <div style="padding-left: 125px;padding-top: 50px;padding-bottom: 20px;">
+		    <h1>Enter a movie genre to search</h1>
+			<p>The app will return popular movies of that genre. Additionally, it will provide an analysis of how Twitter feels about each movie based upon NLP of tweets about that movie.</p>
+			<form action="/input" method="POST">
+				<input type="text" name="submitText" id="submitText" placeholder="Search.."><!-- <button onclick="smh();" type="button">Submit!</button> -->
+			</form>
 		</div>
+		  <div class="table-container">
+		    <table class="table table-hover table-borderless data-table">
+		      <thead>
+		        <tr class="table-headers">
+		          <th scope="col"></th>
+		          <th scope="col">Movie</th>
+		          <th scope="col">Primary Emotion</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+				{% for movie in movies %}
+		            <tr style="border-top: 1.5px solid #DDD;">
+						<td><img src="https://image.tmdb.org/t/p/w500{{ images[movie] }}" height=125></td>
+						<td>{{ movie }}</td>
+						<td>{{ movies[movie] }}</td>
+					</tr>
+				{% endfor %}
+		      </tbody>
+		    </table>
+		  </div>
 	</body>
 </html>
 <script>

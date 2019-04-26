@@ -14,9 +14,11 @@ def input_text():
 	r = requests.get(url)
 	full_json = r.json()
 	movies = {} # key: movie name ; value: sentiment
+	movie_images = {}
 	# print(full_json)
 	for movie in full_json['results']:
 		movies[movie['title']] = []
+		movie_images[movie['title']] = movie['poster_path']
 
 	if request.method == "POST":
 		print(request.form)
@@ -31,12 +33,13 @@ def input_text():
 		for movie in movies: 
 			tweets = api.get_tweets(query = movie, count = 100)
 			sentiment = api.get_sentiment(tweets)
-			final_movies[movie] = sentiment
+			final_movies[movie] = sentiment[0]
 			count = count + 1
 			if count == 5:
 				break
+		print(final_movies)
 
-	return render_template("home.html", movies=final_movies) 
+	return render_template("home.html", movies=final_movies, images=movie_images) 
 
 if __name__ == "__main__":
     app.run(debug=True)
