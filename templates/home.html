@@ -65,7 +65,7 @@
 						<td><img src="https://image.tmdb.org/t/p/w500{{ images[movie] }}" height=125></td>
 						<td>{{ movie }}</td>
 						<td>{{ movies[movie] }}</td>
-						<td><a href="#" class="fav"><i class="fas fa-heart"></i></a></td>
+						<td><a href="#" onclick="addFavorite({{ movie }})" class="fav"><i class="fas fa-heart"></i></a></td>
 					</tr>
 				{% endfor %}
 		      </tbody>
@@ -73,6 +73,8 @@
 		  </div>
 	</body>
 </html>
+<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
 <script>
 	function smh() {
 		let query = document.getElementById("submitText").value;
@@ -86,5 +88,33 @@
 		http.open("POST", "http://127.0.0.1:5000/input", true);
 		http.send();
 	}
+
+
+	var firebase = require("firebase/app");
+	require("firebase/database");
+	
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyDNV53bkCC4jvYWZVtX-TCwgxRhYwPJk0s",
+	    authDomain: "foureleven-1554489265027.firebaseapp.com",
+	    databaseURL: "https://foureleven-1554489265027.firebaseio.com",
+	    projectId: "foureleven-1554489265027",
+	    storageBucket: "foureleven-1554489265027.appspot.com",
+	    messagingSenderId: "161139410636"
+	  };
+	  firebase.initializeApp(config);
+
+	  var database = firebase.database();
+
+
+	function onFavorite(movie) {
+		if (firebase.database().ref(movie) == null) {
+			firebase.database().ref(movie).set({counter=0});
+	}
+	else {
+
+		firebase.database().ref('favorites/' + movieName).set({counter+=1});
+	}
+	
 
 </script>
