@@ -14,9 +14,11 @@ def input_text():
 	r = requests.get(url)
 	full_json = r.json()
 	movies = {} # key: movie name ; value: sentiment
+	movie_images = {}
 	# print(full_json)
 	for movie in full_json['results']:
 		movies[movie['title']] = []
+		movie_images[movie['title']] = movie['poster_path']
 
 	if request.method == "POST":
 		print(request.form)
@@ -37,7 +39,7 @@ def input_text():
 				break
 		print(final_movies)
 
-	return render_template("home.html", movies=final_movies) 
+	return render_template("home.html", movies=final_movies, images=movie_images) 
 
 if __name__ == "__main__":
     app.run(debug=True)
