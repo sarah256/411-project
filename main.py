@@ -9,22 +9,45 @@ def home():
 
 @app.route("/input", methods=["POST"])
 def input_text():
-	#NOTE - make sure to put API key into url
-	url = "https://api.themoviedb.org/3/discover/movie?api_key=XXX&language=en-US&sort_by=popularity.desc&with_genres=28"
-	r = requests.get(url)
-	full_json = r.json()
-	movies = {} # key: movie name ; value: sentiment
-	movie_images = {}
-	# print(full_json)
-	for movie in full_json['results']:
-		movies[movie['title']] = []
-		movie_images[movie['title']] = movie['poster_path']
-
+	genres = {"Action":28,
+				"Adventure":12,
+				"Animation":16,
+				"Comedy":35,
+				"Crime":80,
+				"Documentary":99,
+				"Drama":18,
+				"Family":10751,
+				"Fantasy":14,
+				"History":36,
+				"Horror":27,
+				"Music":10402,
+				"Mystery":9648,
+				"Romance":10749,
+				"Science Fiction":878,
+				"TV Movie":10770,
+				"Thriller":53,
+				"War":10752,
+				"Western":37
+				}
 	if request.method == "POST":
 		print(request.form)
 		data = request.form['submitText']
 		print(data)
 		query = data
+		genre_id = genres[query]
+		#NOTE - make sure to put API key into url
+		url = "https://api.themoviedb.org/3/discover/movie?api_key=XXX&language=en-US&sort_by=popularity.desc&with_genres="+str(genre_id)
+		print(url)
+		print(query + " this is the query ---------------")
+		print(genre_id)
+		r = requests.get(url)
+		full_json = r.json()
+		movies = {} # key: movie name ; value: sentiment
+		movie_images = {}
+		# print(full_json)
+		for movie in full_json['results']:
+			movies[movie['title']] = []
+			movie_images[movie['title']] = movie['poster_path']
 		# creating object of TwitterClient Class 
 		api = TwitterClient() 
 		# calling function to get tweets
