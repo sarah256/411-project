@@ -31,10 +31,11 @@ def input_text():
 		for movie in movies: 
 			tweets = api.get_tweets(query = movie, count = 100)
 			sentiment = api.get_sentiment(tweets)
-			final_movies[movie] = sentiment
+			final_movies[movie] = sentiment[0]
 			count = count + 1
 			if count == 5:
 				break
+		print(final_movies)
 
 	return render_template("home.html", movies=final_movies) 
 

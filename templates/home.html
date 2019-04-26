@@ -26,7 +26,12 @@
 			<input type="text" name="submitText" id="submitText" placeholder="Search.."><!-- <button onclick="smh();" type="button">Submit!</button> -->
 		</form>
 		<div class="def-text">
-			{{movies}}
+			<ul>
+				{% for movie in movies %}
+					<li>{{ movie }}</li>
+					<p>{{ movies[movie] }}</p>
+				{% endfor %}
+			</ul>
 		</div>
 	</body>
 </html>
